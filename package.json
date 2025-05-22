@@ -1,0 +1,36 @@
+{
+  "name": "project-outlook",
+  "version": "1.0.0",
+  "description": "just a final project",
+  "license": "ISC",
+  "author": "THE TRIO",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "nodemon --env-file=.env server.js",
+    "lint": "npx eslint",
+    "lint:fix": "npx eslint --fix",
+    "pretty": "npx prettier . --check",
+    "pretty:fix": "npx prettier . --write"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^11.8.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "globals": "^16.0.0",
+    "nodemon": "^3.1.10",
+    "prettier": "3.5.2"
+  }
+}
