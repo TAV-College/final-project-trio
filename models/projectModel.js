@@ -6,6 +6,13 @@ exports.createProject = (data, callback) => {
 };
 
 exports.getUserProjects = (userId, callback) => {
-  db.all(`SELECT * FROM Projects WHERE user_id = ?`, [userId], callback);
+ db.all(`SELECT * FROM Projects WHERE user_id = ?`, [userId], (err, rows) => {
+    if (err) {
+      console.error('DB Error in getUserProjects:', err);
+      return callback(err);
+    }
+    callback(null, rows);
+  });
 };
+
 

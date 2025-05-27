@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= username %>'s Projects</title>
+</head>
+<body>
+  <div>
+    <h1>Welcome, <%= username %>!</h1>
+
+    <form action="/projects" method="POST">
+      <div>
+        <input name="name" placeholder="Project Name" required />
+      </div>
+      <div>
+        <textarea name="description" placeholder="Description" rows="3"></textarea>
+      </div>
+      <button type="submit">Add Project</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -10,24 +10,27 @@ const db = new sqlite3.Database(dbPath, (err) => {
 
 // Initialize tables
 db.serialize(() => {
+ 
   db.run(`
     CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT NOT NULL,
-      email TEXT NOT NULL UNIQUE,
-      password TEXT NOT NULL
-    )
-  `);
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    role TEXT DEFAULT 'user'
+  );
 
-  db.run(`
-    CREATE TABLE IF NOT EXISTS projects (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER,
-      name TEXT NOT NULL,
-      description TEXT,
-      FOREIGN KEY(user_id) REFERENCES users(id)
-    )
   `);
+  db.run(
+    `
+   CREATE TABLE IF NOT EXISTS Projects (
+    project_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+  );`
+  )
 });
 
 module.exports = db;

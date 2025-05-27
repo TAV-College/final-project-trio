@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const cookieParser = require('cookie-parser');
+require('dotenv').config();
+
+app.use(cookieParser()); // Add after express.json()
 
 // Middleware
 app.use(express.json());

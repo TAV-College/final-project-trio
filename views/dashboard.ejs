@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Projects</title>
+  <title><%= username %>'s Projects</title>
 </head>
 <body>
-  <h2>Welcome, <%= username %></h2>
-  <h3>Your Projects:</h3>
-  <ul>
-    <% projects.forEach(project => { %>
-      <li><strong><%= project.name %></strong>: <%= project.description %></li>
-    <% }) %>
-  </ul>
+  <div>
+    <h1>Welcome, <%= username %>!</h1>
+    <div>
+      <% projects.forEach(project => { %>
+        <div>
+          <h3><%= project.name %></h3>
+          <p><%= project.description %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
 </body>
 </html>
